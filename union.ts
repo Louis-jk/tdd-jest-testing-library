@@ -9,7 +9,7 @@ const c: HasNameOrAge = { name: 'Joonho', age: 25 };
 
 type HasNameAndAge = HasName & HasAge;
 
-const d: HasNameAndAge = { name: 'Joonho' };
+const d: HasNameAndAge = { name: 'Joonho', age: 25 };
 
 console.log('====================================');
 console.log('c', c);
