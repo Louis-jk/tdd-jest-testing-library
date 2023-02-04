@@ -18,6 +18,15 @@ function createObserver<EventType>(): {
   };
 }
 
+interface BeforeSetEvent<T> {
+  value: T;
+  newValue: T;
+}
+
+interface AfterSetEvent<T> {
+  value: T;
+}
+
 interface Pocketmon {
   id: string;
   attack: number;
@@ -31,6 +40,9 @@ interface BaseRecord {
 interface Database<T extends BaseRecord> {
   set(newValue: T): void;
   get(id: string): T | undefined;
+
+  onBeforeAdd(listener: Listener<BeforeSetEvent<T>>): () => void;
+  onAfterAdd(listener: Listener<AfterSetEvent<T>>): () => void;
 }
 
 // Factory Pattern (C++)
@@ -39,6 +51,10 @@ function createDatabase<T extends BaseRecord>() {
     private db: Record<string, T> = {};
 
     static instance: InMemoryDatabase = new InMemoryDatabase();
+
+    private beforeAddListeners = createObserver<BeforeSetEvent<T>>();
+    private afterAddListeners = createObserver<AfterSetEvent<T>>();
+
     private constructor() {}
 
     public set(newValue: T) {
@@ -47,6 +63,13 @@ function createDatabase<T extends BaseRecord>() {
 
     public get(id: string): T | undefined {
       return this.db[id];
+    }
+
+    onBeforeAdd(listener: Listener<BeforeSetEvent<T>>): () => void {
+      return this.beforeAddListeners.subscribe(listener);
+    }
+    onAfterAdd(listener: Listener<AfterSetEvent<T>>): () => void {
+      return this.afterAddListeners.subscribe(listener);
     }
   }
 
