@@ -18,6 +18,9 @@ function createDatabase<T extends BaseRecord>() {
   class InMemoryDatabase implements Database<T> {
     private db: Record<string, T> = {};
 
+    static instance: InMemoryDatabase = new InMemoryDatabase();
+    private constructor() {}
+
     public set(newValue: T) {
       this.db[newValue.id] = newValue;
     }
@@ -27,15 +30,17 @@ function createDatabase<T extends BaseRecord>() {
     }
   }
 
+  // singleton
+  // const db = new InMemoryDatabase();
+  // return db;
   return InMemoryDatabase;
 }
 
 const PocketmonDB = createDatabase<Pocketmon>();
-const pocketmonDB = new PocketmonDB();
-pocketmonDB.set({
+PocketmonDB.instance.set({
   id: 'Bulbasaur',
   attack: 50,
   defense: 10,
 });
 
-console.log(pocketmonDB.get('Bulbasaur'));
+console.log(PocketmonDB.instance.get('Bulbasaur'));
