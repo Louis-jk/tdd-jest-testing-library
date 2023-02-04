@@ -13,19 +13,25 @@ interface Database<T extends BaseRecord> {
   get(id: string): T | undefined;
 }
 
-class InMemoryDatabase<T extends BaseRecord> implements Database<T> {
-  private db: Record<string, T> = {};
+// Factory Pattern (C++)
+function createDatabase<T extends BaseRecord>() {
+  class InMemoryDatabase implements Database<T> {
+    private db: Record<string, T> = {};
 
-  public set(newValue: T) {
-    this.db[newValue.id] = newValue;
+    public set(newValue: T) {
+      this.db[newValue.id] = newValue;
+    }
+
+    public get(id: string): T | undefined {
+      return this.db[id];
+    }
   }
 
-  public get(id: string): T | undefined {
-    return this.db[id];
-  }
+  return InMemoryDatabase;
 }
 
-const pocketmonDB = new InMemoryDatabase<Pocketmon>();
+const PocketmonDB = createDatabase<Pocketmon>();
+const pocketmonDB = new PocketmonDB();
 pocketmonDB.set({
   id: 'Bulbasaur',
   attack: 50,
