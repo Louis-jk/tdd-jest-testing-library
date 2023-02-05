@@ -89,15 +89,18 @@ function createDatabase<T extends BaseRecord>() {
 }
 
 const PocketmonDB = createDatabase<Pocketmon>();
+
+const unsubscribe = PocketmonDB.instance.onAfterAdd(({ value }) => {
+  console.log(value);
+});
+
 PocketmonDB.instance.set({
   id: 'Bulbasaur',
   attack: 50,
   defense: 10,
 });
 
-PocketmonDB.instance.onAfterAdd(({ value }) => {
-  console.log(value);
-});
+unsubscribe();
 
 PocketmonDB.instance.set({
   id: 'Spinosaur',
