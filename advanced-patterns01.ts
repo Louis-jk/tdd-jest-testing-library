@@ -58,7 +58,16 @@ function createDatabase<T extends BaseRecord>() {
     private constructor() {}
 
     public set(newValue: T) {
+      this.beforeAddListeners.publish({
+        newValue,
+        value: this.db[newValue.id],
+      });
+
       this.db[newValue.id] = newValue;
+
+      this.afterAddListeners.publish({
+        value: newValue,
+      });
     }
 
     public get(id: string): T | undefined {
@@ -86,4 +95,14 @@ PocketmonDB.instance.set({
   defense: 10,
 });
 
-console.log(PocketmonDB.instance.get('Bulbasaur'));
+PocketmonDB.instance.onAfterAdd(({ value }) => {
+  console.log(value);
+});
+
+PocketmonDB.instance.set({
+  id: 'Spinosaur',
+  attack: 100,
+  defense: 20,
+});
+
+// console.log(PocketmonDB.instance.get('Bulbasaur'));
