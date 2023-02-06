@@ -36,3 +36,22 @@ function ranker<RankItem>(
 
   return ranks.map((rank) => rank.item);
 }
+
+interface Pockemon {
+  name: string;
+  hp: number;
+}
+
+const pokemon: Pockemon[] = [
+  {
+    name: 'Bulbasaur',
+    hp: 20,
+  },
+  {
+    name: 'Megasaur',
+    hp: 5,
+  },
+];
+
+const ranks = ranker(pokemon, ({ hp }) => hp);
+console.log(ranks);
