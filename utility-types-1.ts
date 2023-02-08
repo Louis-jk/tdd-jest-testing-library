@@ -2,13 +2,16 @@ interface MyUser {
   name: string;
   id: string;
   email?: string;
+  phone?: string;
 }
 
-interface MyUserOptionals {
-  name?: string;
-  id?: string;
-  email?: string;
-}
+type MyUserOptionals = Partial<MyUser>;
+
+// interface MyUserOptionals {
+//   name?: string;
+//   id?: string;
+//   email?: string;
+// }
 
 const merge = (user: MyUser, overrides: MyUserOptionals): MyUser => {
   return {
@@ -26,6 +29,7 @@ console.log(
     },
     {
       email: 'lippoint.surf0622@gmail.com',
+      phone: '01052090471',
     }
   )
 );
