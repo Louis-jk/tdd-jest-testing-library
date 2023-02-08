@@ -30,11 +30,12 @@ type RequireMyUser = Required<MyUser>;
 
 type JustEmailAndName = Pick<MyUser, 'email' | 'name'>;
 
-const mapById = (users: MyUser[]): Record<string, MyUser> => {
+const mapById = (users: MyUser[]): Record<string, Omit<MyUser, 'id'>> => {
   return users.reduce((a, v) => {
+    const { id, ...other } = v;
     return {
       ...a,
-      [v.id]: v,
+      [id]: other,
     };
   }, {});
 };
