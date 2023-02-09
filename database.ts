@@ -15,4 +15,5 @@ class InMemoryDatabase implements Database {
 
 const myDB = new InMemoryDatabase();
 myDB.set('foo', 'bar');
+myDB.db['foo'] = 'baz';
 console.log(myDB.get('foo'));
