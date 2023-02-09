@@ -13,6 +13,14 @@ function makeCat(name: string, breed: string): Readonly<Cat> {
 const usul = makeCat('Usul', 'Tabby');
 // usul.name = 'Piter';
 
-console.log('====================================');
-console.log(usul);
-console.log('====================================');
+function makeCoordinate(
+  x: number,
+  y: number,
+  z: number
+): readonly [number, number, number] {
+  return [x, y, z];
+}
+
+const c1 = makeCoordinate(10, 20, 30);
+
+const reallyConst = [1, 2, 3] as const;
