@@ -3,9 +3,9 @@
 // const loaded = 'loaded';
 
 enum LoadingState {
-  beforeLoad = 'beforeLoad',
-  loading = 'loading',
-  loaded = 'loaded',
+  beforeLoad,
+  loading,
+  loaded,
 }
 
 const isLoading = (state: LoadingState) => state === LoadingState.loading;
