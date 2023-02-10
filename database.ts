@@ -31,8 +31,8 @@ class PersistentMemoryDB<T, K extends DBKeyType>
   }
 }
 
-const myDB = new PersistentMemoryDB<string, string>();
-myDB.set('foo', 'bar');
+const myDB = new PersistentMemoryDB<number, string>();
+myDB.set('foo', 100);
 // myDB.db["foo"] = "baz"
 
 console.log(myDB.get('foo'));
@@ -40,10 +40,10 @@ console.log(myDB.get('foo'));
 // console.log(myDB.restoreFromString('baz'));
 
 const saved = myDB.saveToString();
-myDB.set('foo', 'db1 - bar');
+myDB.set('foo', 10000);
 console.log(myDB.get('foo'));
 
-const myDB2 = new PersistentMemoryDB<string, string>();
+const myDB2 = new PersistentMemoryDB<number, string>();
 myDB2.restoreFromString(saved);
 console.log(myDB2.get('foo'));
 console.log(myDB.get('foo'));
