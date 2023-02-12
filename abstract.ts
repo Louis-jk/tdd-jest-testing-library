@@ -22,7 +22,7 @@ class Ryu extends StreetFighter {
 
 class Ken extends StreetFighter {
   getSpecialAttack(): string {
-    return 'AttataTuruken';
+    return 'Shoryuken';
   }
 
   get name(): string {
@@ -32,7 +32,7 @@ class Ken extends StreetFighter {
 
 class ChunLi extends StreetFighter {
   getSpecialAttack(): string {
-    return 'Lightning Kick';
+    return 'Kikouken';
   }
 
   get name(): string {
