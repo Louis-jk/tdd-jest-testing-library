@@ -1,11 +1,5 @@
 class Doggy {
-  public name: string = '';
-  public age: number = 0;
-
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
+  constructor(public name: string, public age: number) {}
 }
 
 const lgg = new Doggy('LG', 13);
