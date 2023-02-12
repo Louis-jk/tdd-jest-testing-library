@@ -12,8 +12,12 @@ class DogList {
   static instance: DogList = new DogList();
 
   private constructor() {} // javascript 싱글톤 구현
+
+  public addDog(dog: Doggy) {
+    this.doggies.push(dog);
+  }
 }
 
-DogList.instance; // javascript 싱글톤 구현
+DogList.instance.addDog(lgg); // javascript 싱글톤 구현
 
 // const dl = new DogList(); javascript 싱글톤 구현
