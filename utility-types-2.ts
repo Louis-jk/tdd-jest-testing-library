@@ -27,3 +27,26 @@ console.log(
     },
   ])
 );
+
+class PersonWithFullName {
+  constructor(public name: Name) {}
+
+  get fullName() {
+    return `${this.name.first} ${this.name.last}`;
+  }
+}
+
+function createObjects<T extends new (...args: any[]) => any>(
+  ObjectType: T,
+  data: ConstructorParameters<T>[0][]
+): InstanceType<T>[] {
+  return data.map((item) => new ObjectType(item));
+}
+
+console.log(
+  createObjects(PersonWithFullName, [
+    { first: 'Joonho', last: 'Kim' },
+    { first: 'Kanae', last: 'Yuge' },
+    { first: 'Raon', last: 'Kim Yuge' },
+  ]).map((item) => item.fullName)
+);
