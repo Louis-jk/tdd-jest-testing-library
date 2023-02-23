@@ -83,8 +83,6 @@ function createDatabase<T extends BaseRecord>() {
   }
 
   // singleton
-  // const db = new InMemoryDatabase();
-  // return db;
   return InMemoryDatabase;
 }
 
