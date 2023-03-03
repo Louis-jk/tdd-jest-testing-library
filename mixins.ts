@@ -44,7 +44,7 @@ function CreateSimpleMemoryDatabase<T>() {
 const StringDatabase = CreateSimpleMemoryDatabase<string>();
 
 const sdb1 = new StringDatabase();
-sdb1.set('a', 'hello');
+sdb1.set('a', 'Hi');
 
 type Constructor<T> = new (...args: any[]) => T;
 
