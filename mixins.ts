@@ -62,5 +62,5 @@ function Dumpable<
 
 const DumpableStringDatabase = Dumpable(StringDatabase);
 const sdb2 = new DumpableStringDatabase();
-sdb2.set('joonho', 'hello joonho');
+sdb2.set('joonho', 'Hi joonho');
 sdb2.dump();
