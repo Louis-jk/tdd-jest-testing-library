@@ -1,7 +1,11 @@
 import React from "react";
 
-const Great = () => {
-  return <div>Hello</div>;
+type GreatProps = {
+  name?: string;
+};
+
+const Great = (props: GreatProps) => {
+  return <div>Hello {props.name}</div>;
 };
 
 export default Great;
