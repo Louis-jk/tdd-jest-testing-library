@@ -4,12 +4,13 @@ const Contact = () => {
   return (
     <div>
         <h1>お問い合わせフォーム</h1>
+        <h2>お問い合わせフォームです。</h2>
         <p>すべてのフィールドは必須項目です。</p>
         
         <form>
             <div>
                 <label htmlFor="name">名前</label>
-                <input type="text" id="name" name="name" required />
+                <input type="text" id="name" name="name" placeholder="名前を入力してください" required />
             </div>
 
             <div>
