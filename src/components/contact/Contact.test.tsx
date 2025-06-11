@@ -8,6 +8,12 @@ describe("Contact", () => {
         const nameElement = screen.getByRole("textbox", {name: "名前"})
         expect(nameElement).toBeInTheDocument();
 
+        const nameElement02 = screen.getByLabelText("名前")
+        expect(nameElement02).toBeInTheDocument();        
+
+        const emailElement = screen.getByRole("textbox", {name: "メールアドレス"})
+        expect(emailElement).toBeInTheDocument();
+
         const questionsElement = screen.getByRole("combobox")
         expect(questionsElement).toBeInTheDocument();
 

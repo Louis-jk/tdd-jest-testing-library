@@ -13,6 +13,11 @@ const Contact = () => {
             </div>
 
             <div>
+                <label htmlFor="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div>
                 <label htmlFor="question">お問い合わせ内容</label>
                 <select id="question" name="question" required>
                     <option value="">選択してください</option>
