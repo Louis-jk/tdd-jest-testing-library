@@ -12,6 +12,9 @@ describe("Contact", () => {
         const paragraphElement = screen.getByText("すべてのフィールドは必須項目です。")
         expect(paragraphElement).toBeInTheDocument();
 
+        const imageElement = screen.getByAltText("sample alt")
+        expect(imageElement).toBeInTheDocument();
+
         const nameElement = screen.getByRole("textbox", {name: "名前"})
         expect(nameElement).toBeInTheDocument();
 

@@ -6,6 +6,8 @@ const Contact = () => {
         <h1>お問い合わせフォーム</h1>
         <h2>お問い合わせフォームです。</h2>
         <p>すべてのフィールドは必須項目です。</p>
+
+        <img src="https://placehold.co/600x400" alt="sample alt" />
         
         <form>
             <div>
