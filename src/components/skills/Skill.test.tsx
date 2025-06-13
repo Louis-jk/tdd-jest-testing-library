@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { logRoles, render, screen } from '@testing-library/react'
 import Skills from './Skills'
 
 describe("Skills", () => {
@@ -34,10 +34,14 @@ describe("Skills", () => {
     }) 
     
     test("renders logout button is eventually displayed", async () => {
-        render(<Skills skills={skills} />)
-        
+        const view = render(<Skills skills={skills} />)
+
+        logRoles(view.container)
+
         const logoutButton = await screen.findByRole("button", {name: "Logout"}, {timeout: 2000})
         expect(logoutButton).toBeInTheDocument();
+
+        
     }) 
     
 })
