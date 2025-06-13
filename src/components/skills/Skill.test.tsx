@@ -34,9 +34,10 @@ describe("Skills", () => {
     }) 
     
     test("renders logout button is eventually displayed", async () => {
-        const view = render(<Skills skills={skills} />)
+        render(<Skills skills={skills} />)
 
-        logRoles(view.container)
+        // logRoles(view.container)
+        // screen.debug()
 
         const logoutButton = await screen.findByRole("button", {name: "Logout"}, {timeout: 2000})
         expect(logoutButton).toBeInTheDocument();
