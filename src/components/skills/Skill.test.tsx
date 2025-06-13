@@ -26,12 +26,18 @@ describe("Skills", () => {
         expect(loginButton).toBeInTheDocument();
     })
 
-    test("renders logout button", () => {
+    test("renders logout button is not rendered", () => {
         render(<Skills skills={skills} />)
 
         const logoutButton = screen.queryByRole("button", {name: "Logout"})
         expect(logoutButton).not.toBeInTheDocument();
-    })
+    }) 
     
+    test("renders logout button is eventually displayed", async () => {
+        render(<Skills skills={skills} />)
+        
+        const logoutButton = await screen.findByRole("button", {name: "Logout"}, {timeout: 2000})
+        expect(logoutButton).toBeInTheDocument();
+    }) 
     
 })
