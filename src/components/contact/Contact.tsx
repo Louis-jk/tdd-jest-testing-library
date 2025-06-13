@@ -10,7 +10,14 @@ const Contact = () => {
         <form>
             <div>
                 <label htmlFor="name">名前</label>
-                <input type="text" id="name" name="name" placeholder="名前を入力してください" required />
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="名前を入力してください" 
+                    value="山田太郎"
+                    onChange={() => {}}
+                 />
             </div>
 
             <div>
