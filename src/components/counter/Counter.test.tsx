@@ -33,8 +33,27 @@ describe("Counter", () => {
         await user.click(incrementButton)
         const counterElement = screen.getByRole("heading")
         expect(counterElement).toHaveTextContent("1")
-        
-        
+                
     })
+
+    test("renders a count of 10 after clicking the increment by amount button", async () => {
+        const user = userEvent.setup()
+        render(<Counter />)
+
+        const amountInput = screen.getByRole("spinbutton")
+        await user.type(amountInput, "5")
+        expect(amountInput).toHaveValue(5)  
+        
+        const incrementByAmountButton = screen.getByRole("button", {
+            name: "Increment by amount"
+        })
+
+        await user.click(incrementByAmountButton)
+        const counterElement = screen.getByRole("heading")
+        expect(counterElement).toHaveTextContent("5")
+    })
+
+
+
 
 })  
