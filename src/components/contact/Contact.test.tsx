@@ -15,6 +15,9 @@ describe("Contact", () => {
         const imageElement = screen.getByAltText("sample alt")
         expect(imageElement).toBeInTheDocument();
 
+        const imageElement02 = screen.getByRole("img", {name: "sample alt"})
+        expect(imageElement02).toBeInTheDocument();
+
         const nameElement = screen.getByRole("textbox", {name: "名前"})
         expect(nameElement).toBeInTheDocument();
 
