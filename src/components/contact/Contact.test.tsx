@@ -9,6 +9,10 @@ describe("Contact", () => {
         const h1Text = screen.getByRole("heading", {level: 1})
         expect(h1Text).toHaveTextContent("お問い合わせフォーム")
 
+        const closeElement = screen.getByTitle("close")
+        expect(closeElement).toBeInTheDocument();
+        
+
         const paragraphElement = screen.getByText("すべてのフィールドは必須項目です。")
         expect(paragraphElement).toBeInTheDocument();
 
@@ -17,6 +21,9 @@ describe("Contact", () => {
 
         const imageElement02 = screen.getByRole("img", {name: "sample alt"})
         expect(imageElement02).toBeInTheDocument();
+
+        const customElement = screen.getByTestId("custom-element")
+        expect(customElement).toBeInTheDocument();
 
         const nameElement = screen.getByRole("textbox", {name: "名前"})
         expect(nameElement).toBeInTheDocument();
