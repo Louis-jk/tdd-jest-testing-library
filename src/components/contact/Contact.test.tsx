@@ -21,6 +21,9 @@ describe("Contact", () => {
         const nameElement03 = screen.getByPlaceholderText("名前を入力してください")
         expect(nameElement03).toBeInTheDocument();
 
+        const nameElement04 = screen.getByDisplayValue("山田太郎")
+        expect(nameElement04).toBeInTheDocument();
+
         const emailElement = screen.getByRole("textbox", {name: "メールアドレス"})
         expect(emailElement).toBeInTheDocument();
 
