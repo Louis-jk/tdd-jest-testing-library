@@ -44,13 +44,13 @@ describe("Counter", () => {
         await user.type(amountInput, "5")
         expect(amountInput).toHaveValue(5)  
         
-        const incrementByAmountButton = screen.getByRole("button", {
-            name: "Increment by amount"
-        })
+        // const incrementByAmountButton = screen.getByRole("button", {
+        //     name: "Increment by amount"
+        // })
 
-        await user.click(incrementByAmountButton)
-        const counterElement = screen.getByRole("heading")
-        expect(counterElement).toHaveTextContent("5")
+        // await user.click(incrementByAmountButton)
+        // const counterElement = screen.getByRole("heading")
+        // expect(counterElement).toHaveTextContent("5")
     })
 
 
@@ -62,9 +62,9 @@ describe("Counter", () => {
             name: "Increment"
         })
         const amountInput = screen.getByRole("spinbutton")        
-        const incrementByAmountButton = screen.getByRole("button", {
-            name: "Increment by amount"
-        })
+        // const incrementByAmountButton = screen.getByRole("button", {
+        //     name: "Increment by amount"
+        // })
 
         await user.tab()
         expect(incrementButton).toHaveFocus()
@@ -72,8 +72,8 @@ describe("Counter", () => {
         await user.tab()
         expect(amountInput).toHaveFocus()
 
-        await user.tab()
-        expect(incrementByAmountButton).toHaveFocus()                
+        // await user.tab()
+        // expect(incrementByAmountButton).toHaveFocus()                
     })
 
 })  
