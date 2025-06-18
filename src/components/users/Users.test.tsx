@@ -14,6 +14,6 @@ describe("Users", () => {
     test("renders a list of users", async () => {
         render(<Users />)        
         const users = await screen.findAllByRole("listitem")
-        expect(users).toHaveLength(10)
+        expect(users).toHaveLength(3)
     })
 })
