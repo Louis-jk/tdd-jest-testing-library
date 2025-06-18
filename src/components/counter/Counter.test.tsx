@@ -73,11 +73,7 @@ describe("Counter", () => {
         expect(amountInput).toHaveFocus()
 
         await user.tab()
-        expect(incrementByAmountButton).toHaveFocus()
-        
-        
+        expect(incrementByAmountButton).toHaveFocus()                
     })
-
-
 
 })  
