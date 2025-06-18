@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react"
+import { act, renderHook, waitFor } from "@testing-library/react"
 import { useCounter } from "./useCounter"
 
 describe("useCounter", () => {
@@ -15,7 +15,26 @@ describe("useCounter", () => {
     test("Increment count test", () => {
         const { result } = renderHook(() => useCounter({ initialCount: 0 }))
         expect(result.current.count).toBe(0)
-        act(() => result.current.increment())
+        act(() => result.current.increment())        
         expect(result.current.count).toBe(1)
     })
+
+    test("Decrement count test", () => {
+        const { result } = renderHook(() => useCounter({ initialCount: 0 }))
+        expect(result.current.count).toBe(0)
+        act(() => result.current.decrement())
+        expect(result.current.count).toBe(-1)
+    })
+
+    test("Reset count test", () => {
+        const { result } = renderHook(() => useCounter({ initialCount: 0 }))
+        expect(result.current.count).toBe(0)
+        
+        act(() => result.current.increment())
+        expect(result.current.count).toBe(1)
+        
+        act(() => result.current.reset())
+        expect(result.current.count).toBe(0)
+    })
+    
 })
